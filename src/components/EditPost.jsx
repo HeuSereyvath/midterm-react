@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-const EditPost = ({ selectedPost, onUpdate }) => {
+const EditPost = ({ selectedPost, onUpdate, setIsEdit }) => {
   const [name, setName] = useState(selectedPost?.name || "");
   const [photo, setPhoto] = useState(selectedPost?.photo || "");
   const [country, setCountry] = useState(selectedPost?.country || "");
@@ -35,6 +35,7 @@ const EditPost = ({ selectedPost, onUpdate }) => {
       })
       .then((response) => {
         onUpdate(response.data);
+        setIsEdit(true)
       })
       .catch((error) => console.error("Error updating post:", error));
   };

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const PostList = ({ onEdit }) => {
+const PostList = ({ onEdit, isAddNew, isEdit }) => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     axios
       .get("https://midterm-json-server.vercel.app/animal")
       .then((response) => setPosts(response.data)) // Fetch first 5 posts
       .catch((error) => console.error("Error fetching posts:", error));
-  }, [posts]);
+  }, [isAddNew, isEdit]);
   const handleDelete = (id) => {
     axios
       .delete(`https://midterm-json-server.vercel.app/animal/${id}`)

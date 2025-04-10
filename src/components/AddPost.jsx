@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
 
-const AddPost = ({ onAdd }) => {
+const AddPost = ({ onAdd, setIsAddNew }) => {
   const [name, setName] = useState("");
   const [photo, setPhoto] = useState(""); 
   const [country, setCountry] = useState("");
@@ -34,6 +34,7 @@ const AddPost = ({ onAdd }) => {
         setName("");
         setPhoto("");
         setCountry("");
+        setIsAddNew(true);
         if (fileInputRef.current) {
           fileInputRef.current.value = null; // Clear file input
         }
