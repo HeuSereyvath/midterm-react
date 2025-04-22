@@ -46,8 +46,8 @@ const PostList = ({ onEdit, isAddNew, isEdit }) => {
             <div className="w-full h-[300px] overflow-hidden">
               <img src={post.photo} alt="" className="w-full h-full object-cover" />
             </div>
-            <h4>{post.name}</h4>
-            <p>{post.country}</p>
+            <h4>Name : {post.name}</h4>
+            <p>Country : {post.country}</p>
             <Button onClick={() => onEdit(post)}>Edit</Button>
             <Button color="red" onClick={() => confirmDelete(post.id)}>Delete</Button>
           </Card>
